@@ -4,6 +4,10 @@
 #include "../engine/texts/TextManager.h"
 #include "KeyBinder.h"
 
+#ifdef __PSP2__
+#include <psp2/io/stat.h>
+#endif
+
 ConfigurationManager ConfigurationManager::instance=ConfigurationManager();
 
 ConfigurationManager::ConfigurationManager() : haveToSave(false), file(""),
@@ -19,7 +23,8 @@ ConfigurationManager* ConfigurationManager::getInstance() {
 
 void ConfigurationManager::init(string filename, string keys) {
 #ifdef __PSP2__
-    file = "app0:" + filename;
+	sceIoMkdir("ux0:data/znsq/config", 0777);
+    file = "ux0:data/znsq/" + filename;
 #else
     file = filename;
 #endif
