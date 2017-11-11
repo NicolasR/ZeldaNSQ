@@ -17,7 +17,7 @@ Note: saves can be found in `ux0:data/znsq/saves` directory.
 | Triangle | Use selected object |
 | R | Run |
 | Right D-Pad | Item selection |
-| Up D-Pad | See the mpa |
+| Up D-Pad | See the map |
 | Left D-Pad | See barter items |
 | Down D-Pad | Oni Link transformation |
 | L + Square | Navi's heal |
