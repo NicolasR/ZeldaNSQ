@@ -18,7 +18,11 @@ ConfigurationManager* ConfigurationManager::getInstance() {
 }
 
 void ConfigurationManager::init(string filename, string keys) {
+#ifdef __PSP2__
+    file = "app0:" + filename;
+#else
     file = filename;
+#endif
     haveToSave = false;
 
     ifstream f(file.c_str(), ios::in | ios::binary);
@@ -28,6 +32,21 @@ void ConfigurationManager::init(string filename, string keys) {
         f.read((char *)&lang,sizeof(int));
         f.read((char *)&skin,sizeof(int));
         f.close();
+#ifdef __PSP2__
+    } else {
+        SceAppUtilInitParam init;
+        SceAppUtilBootParam boot;
+        memset(&init, 0, sizeof(SceAppUtilInitParam));
+        memset(&boot, 0, sizeof(SceAppUtilBootParam));
+        sceAppUtilInit(&init, &boot);
+
+        int language = 0;
+        sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &language);
+        switch (language) {
+            case SCE_SYSTEM_PARAM_LANG_FRENCH: lang = 0; break;
+            default: lang = 1; break;
+        }
+#endif
     }
 
     audio = new AudioHelper();

@@ -1,7 +1,11 @@
 #include "WMusic.h"
 
 WMusic::WMusic(string filename) {
+#ifdef __PSP2__
+    name = "app0:" + filename;
+#else
     name = filename;
+#endif
     music = Mix_LoadMUS(name.c_str());
 }
 

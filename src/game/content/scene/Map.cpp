@@ -99,7 +99,11 @@ void Map::load() {
 void Map::loadFromFile() {
     ostringstream oss;
     oss << map;
+#ifdef __PSP2__
+    string result = "app0:data/maps/map" + oss.str() + ".dat";
+#else
     string result = "data/maps/map" + oss.str() + ".dat";
+#endif
     ifstream file(result.c_str());
 
     file >> w;

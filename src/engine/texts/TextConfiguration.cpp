@@ -39,7 +39,11 @@ void TextConfiguration::setHSize(int i) {
 }
 
 void TextConfiguration::setTextfile(string s) {
+#ifdef __PSP2__
+    textfile = "app0:" + s;
+#else
     textfile = s;
+#endif
 }
 
 void TextConfiguration::setImage(WImage* im) {

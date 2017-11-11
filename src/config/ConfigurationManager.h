@@ -16,6 +16,11 @@
 #include "AudioHelper.h"
 #include "TextHelper.h"
 
+#ifdef __PSP2__
+#include <psp2/apputil.h>
+#include <psp2/system_param.h>
+#endif
+
 class ConfigurationManager {
     public :
         static ConfigurationManager* getInstance();

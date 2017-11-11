@@ -21,7 +21,22 @@
 
 #include "game/content/helper/ItemHelper.h"
 
+#ifdef __PSP2__
+#include <psp2/power.h>
+#include <psp2/kernel/processmgr.h>
+#include <psp2/io/fcntl.h>
+#include <psp2/io/stat.h>
+int _newlib_heap_size_user = 192 * 1024 * 1024;
+#endif
+
 int main(int argc, char** argv) {
+#ifdef __PSP2__
+    sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
+    scePowerSetArmClockFrequency(444);
+
+    sceIoMkdir("ux0:data/znsq", 0777);
+    sceIoMkdir("ux0:data/znsq/saves", 0777);
+#endif
     if (argc && argv); //pour éviter un warning.....
 
     std::srand(std::time(NULL));

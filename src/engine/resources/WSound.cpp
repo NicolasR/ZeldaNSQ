@@ -1,7 +1,11 @@
 #include "WSound.h"
 
 WSound::WSound(string filename) {
+#ifdef __PSP2__
+    name = "app0:" + filename;
+#else
     name = filename;
+#endif
     sound = Mix_LoadWAV(name.c_str());
 }
 

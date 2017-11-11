@@ -24,6 +24,11 @@
 #include <iostream>
 #include <fstream>
 
+#ifdef __PSP2__
+#include <psp2/kernel/clib.h>
+#define printf sceClibPrintf
+#endif
+
 using namespace std;
 
 #endif  // Common.h

@@ -48,6 +48,11 @@ class WindowManager {
 
         Uint32 lastAnimTime;
         bool open;
+
+#ifdef __PSP2__
+        SDL_Joystick* joystick;
+        int stickPosition(int stick, int direction);
+#endif
 };
 
 #endif  // WindowManager.h

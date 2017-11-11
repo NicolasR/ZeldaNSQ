@@ -1,7 +1,11 @@
 #include "WImage.h"
 
 WImage::WImage(string filename, bool alpha) {
+#ifdef __PSP2__
+    name = "app0:" + filename;
+#else
     name = filename;
+#endif
     image = IMG_Load(name.c_str());
     if (alpha) {
         SDL_SetColorKey(image, SDL_SRCCOLORKEY, SDL_MapRGB(image->format, 0, 0, 255));
