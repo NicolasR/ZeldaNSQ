@@ -20,6 +20,27 @@
 
 #include "../resources/WImage.h"
 
+#ifdef __PSP2__
+#define BTN_TRIANGLE 0
+#define BTN_CIRCLE 1
+#define BTN_CROSS 2
+#define BTN_SQUARE 3
+#define BTN_LTRIGGER 4
+#define BTN_RTRIGGER 5
+#define BTN_DOWN 6
+#define BTN_LEFT 7
+#define BTN_UP 8
+#define BTN_RIGHT 9
+#define BTN_SELECT 10
+#define BTN_START 11
+#define LSTICK 0
+#define RSTICK 1
+#define STICK_UP 0
+#define STICK_DOWN 1
+#define STICK_LEFT 2
+#define STICK_RIGHT 3
+#endif
+
 class WindowManager {
     public :
         static WindowManager* getInstance();
@@ -51,7 +72,8 @@ class WindowManager {
 
 #ifdef __PSP2__
         SDL_Joystick* joystick;
-        int stickPosition(int stick, int direction);
+        int button(int buttonId);
+        int stick(int stickId, int direction);
 #endif
 };
 

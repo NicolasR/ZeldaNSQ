@@ -37,6 +37,10 @@ KeyBinder::KeyBinder() {
     binding[MAP_8] = k8;
     binding[MAP_9] = k9;
 
+#ifdef __PSP2__
+    binding[MENU_ITEMS] = kG;
+#endif
+
     binding[ENTER] = kReturn;
     binding[QUIT_GAME] = kEscape;
 
@@ -88,6 +92,10 @@ Action* KeyBinder::bind(Event* event) {
     action.setAction(MAP_7, event->isPushed(binding[MAP_7]));
     action.setAction(MAP_8, event->isPushed(binding[MAP_8]));
     action.setAction(MAP_9, event->isPushed(binding[MAP_9]));
+
+#ifdef __PSP2__
+    action.setAction(MENU_ITEMS, event->isPushed(binding[MENU_ITEMS]));
+#endif
 
     action.setAction(AIDE, event->isPushed(binding[AIDE]));
 

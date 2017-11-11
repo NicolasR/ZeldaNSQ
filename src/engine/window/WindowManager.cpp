@@ -1,26 +1,5 @@
 #include "WindowManager.h"
 
-#ifdef __PSP2__
-#define BTN_TRIANGLE 0
-#define BTN_CIRCLE 1
-#define BTN_CROSS 2
-#define BTN_SQUARE 3
-#define BTN_LTRIGGER 4
-#define BTN_RTRIGGER 5
-#define BTN_DOWN 6
-#define BTN_LEFT 7
-#define BTN_UP 8
-#define BTN_RIGHT 9
-#define BTN_SELECT 10
-#define BTN_START 11
-#define LSTICK 0
-#define RSTICK 1
-#define STICK_UP 0
-#define STICK_DOWN 1
-#define STICK_LEFT 2
-#define STICK_RIGHT 3
-#endif
-
 WindowManager WindowManager::instance=WindowManager();
 
 WindowManager::WindowManager() : isFullScreen(FULLSCREEN), event(0), window(0), windowTmp(0), open(false) {
@@ -85,13 +64,16 @@ bool WindowManager::isOpened() {
 }
 
 #ifdef __PSP2__
-int WindowManager::stickPosition(int stick, int direction) {
+int WindowManager::button(int buttonId) {
+    return SDL_JoystickGetButton(joystick, buttonId);
+}
+int WindowManager::stick(int stickId, int direction) {
     int axis;
     int axisValue;
-    if (stick == LSTICK && (direction == STICK_LEFT || direction == STICK_RIGHT)) axis = 0; // Left stick, horizontal axis
-    if (stick == LSTICK && (direction == STICK_UP || direction == STICK_DOWN)) axis = 1; // Left stick, vertical axis
-    if (stick == RSTICK && (direction == STICK_LEFT || direction == STICK_RIGHT)) axis = 2; // Right stick, horizontal axis
-    if (stick == RSTICK && (direction == STICK_UP || direction == STICK_DOWN)) axis = 3; // Right stick, vertical axis
+    if (stickId == LSTICK && (direction == STICK_LEFT || direction == STICK_RIGHT)) axis = 0; // Left stick, horizontal axis
+    if (stickId == LSTICK && (direction == STICK_UP || direction == STICK_DOWN)) axis = 1; // Left stick, vertical axis
+    if (stickId == RSTICK && (direction == STICK_LEFT || direction == STICK_RIGHT)) axis = 2; // Right stick, horizontal axis
+    if (stickId == RSTICK && (direction == STICK_UP || direction == STICK_DOWN)) axis = 3; // Right stick, vertical axis
 
     axisValue = SDL_JoystickGetAxis(joystick, axis); // range is -32768 to 32767
     return ((axisValue < -31000 && direction == STICK_LEFT)
@@ -107,26 +89,35 @@ Event* WindowManager::getEvent() {
     Uint8* keys = SDL_GetKeyState(NULL);
 
 #ifdef __PSP2__
-    // Bindings can be found in src/config/KeyBinder.cpp
-    keys[SDLK_UP] = stickPosition(LSTICK, STICK_UP) || stickPosition(RSTICK, STICK_UP);
-    keys[SDLK_DOWN] = stickPosition(LSTICK, STICK_DOWN) || stickPosition(RSTICK, STICK_DOWN);
-    keys[SDLK_LEFT] = stickPosition(LSTICK, STICK_LEFT) || stickPosition(RSTICK, STICK_LEFT);
-    keys[SDLK_RIGHT] = stickPosition(LSTICK, STICK_RIGHT) || stickPosition(RSTICK, STICK_RIGHT);
-    keys[SDLK_z] = SDL_JoystickGetButton(joystick, BTN_SQUARE); // Hit + Load
-    // TODO keys[SDLK_w] = SDL_JoystickGetButton(joystick, BTN_SQUARE); // Hit 2 + Load 2
-    keys[SDLK_x] = SDL_JoystickGetButton(joystick, BTN_TRIANGLE); // Action
-    keys[SDLK_c] = SDL_JoystickGetButton(joystick, BTN_LTRIGGER); // Carry
-    keys[SDLK_SPACE] = SDL_JoystickGetButton(joystick, BTN_CIRCLE); // Talk / Read
-    keys[SDLK_LCTRL] = stickPosition(RSTICK, STICK_UP) || stickPosition(RSTICK, STICK_DOWN) ||
-        stickPosition(RSTICK, STICK_LEFT) || stickPosition(RSTICK, STICK_RIGHT);
-    keys[SDLK_i] = SDL_JoystickGetButton(joystick, BTN_LEFT); // Troc items
-    keys[SDLK_p] = SDL_JoystickGetButton(joystick, BTN_UP); // Map
-    keys[SDLK_o] = SDL_JoystickGetButton(joystick, BTN_DOWN); // Oni
-    keys[SDLK_v] = SDL_JoystickGetButton(joystick, BTN_RIGHT); // Ulti
-    keys[SDLK_LSHIFT] = SDL_JoystickGetButton(joystick, BTN_RTRIGGER); // Run
-    keys[SDLK_RETURN] = SDL_JoystickGetButton(joystick, BTN_CROSS); // Confirm / Pass text
-    keys[SDLK_ESCAPE] = SDL_JoystickGetButton(joystick, BTN_START); // Escape game
-    keys[SDLK_F1] = SDL_JoystickGetButton(joystick, BTN_SELECT); // Help
+    int ctrl = button(BTN_LTRIGGER);
+    int lup = stick(LSTICK, STICK_UP);
+    int ldown = stick(LSTICK, STICK_DOWN);
+    int lleft = stick(LSTICK, STICK_LEFT);
+    int lright = stick(LSTICK, STICK_RIGHT);
+    int rup = stick(RSTICK, STICK_UP);
+    int rdown = stick(RSTICK, STICK_DOWN);
+    int rleft = stick(RSTICK, STICK_LEFT);
+    int rright = stick(RSTICK, STICK_RIGHT);
+    int navi = ctrl | rup | rdown | rleft | rright;
+
+    keys[SDLK_UP] = (!navi & lup) | rup;
+    keys[SDLK_DOWN] = (!navi & ldown) | rdown;
+    keys[SDLK_LEFT] = (!navi & lleft) | rleft;
+    keys[SDLK_RIGHT] = (!navi & lright) | rright;
+    keys[SDLK_z] = button(BTN_SQUARE); // Hit
+    keys[SDLK_x] = button(BTN_TRIANGLE); // Action
+    keys[SDLK_c] = !navi & button(BTN_CROSS); // Carry
+    keys[SDLK_SPACE] = button(BTN_CIRCLE); // Talk / Read
+    keys[SDLK_LCTRL] = navi; // Hi Navi
+    keys[SDLK_i] = button(BTN_LEFT); // Troc items
+    keys[SDLK_p] = button(BTN_UP); // Map
+    keys[SDLK_o] = button(BTN_DOWN); // Oni Link Transformation
+    keys[SDLK_v] = ctrl & button(BTN_CROSS);
+    keys[SDLK_LSHIFT] = button(BTN_RTRIGGER); // Run
+    keys[SDLK_g] = !navi & button(BTN_RIGHT); // Open item menu
+    keys[SDLK_RETURN] = !navi & button(BTN_CROSS); // Confirm / Pass text
+    keys[SDLK_ESCAPE] = button(BTN_START); // Escape game
+    keys[SDLK_F1] = button(BTN_SELECT); // Help
 #endif
 
     event->update(keys);

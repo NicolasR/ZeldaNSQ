@@ -120,7 +120,11 @@ void Scene::handleActions(Action* action) {
                 break;
             }
 
+#ifdef __PSP2__
+            if (link->getStatus()->getVirtualLife() > 0 && action->isAction(MENU_ITEMS)) {
+#else
             if (link->getStatus()->getVirtualLife() > 0 && action->isAction(ENTER)) {
+#endif
                 MainController::getInstance()->getGameController()->setStep(GAME_MENU);
                 return;
             }
