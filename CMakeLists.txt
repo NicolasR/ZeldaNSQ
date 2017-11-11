@@ -53,7 +53,7 @@ target_link_libraries(${VITA_APPNAME}
   SceSysmodule_stub
 )
 
-file(GLOB_RECURSE ASSETS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} data/*)
+file(GLOB_RECURSE ASSETS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} data/images/* data/maps/* data/musics/* data/sounds/*)
 
 set(DATA "")
 
@@ -73,4 +73,6 @@ vita_create_vpk(${VITA_APPNAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE res/startup.png sce_sys/livearea/contents/startup.png
   FILE res/template.xml sce_sys/livearea/contents/template.xml
   ${DATA}
+  FILE data/texts/english_vita.txt data/texts/english.txt
+  FILE data/texts/french_vita.txt data/texts/french.txt
 )
