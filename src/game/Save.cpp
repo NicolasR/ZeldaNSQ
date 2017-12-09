@@ -99,7 +99,7 @@ void Save::init() {
 void Save::load() {
     ostringstream im;
     im << id;
-#ifdef __PSP2__
+#ifdef __vita__
     ifstream f(("ux0:data/znsq/saves/znq" + im.str() + ".dat").c_str(), ios::in | ios::binary);
 #else
     ifstream f(("saves/znq" + im.str() + ".dat").c_str(), ios::in | ios::binary);
@@ -156,7 +156,7 @@ void Save::load() {
 void Save::save(bool endGame) {
     ostringstream im;
     im << id;
-#ifdef __PSP2__
+#ifdef __vita__
     ofstream f(("ux0:data/znsq/saves/znq" + im.str() + ".dat").c_str(), ios::out | ios::binary);
 #else
     ofstream f(("saves/znq" + im.str() + ".dat").c_str(), ios::out | ios::binary);
@@ -211,7 +211,7 @@ void Save::save(bool endGame) {
 void Save::erase() {
     ostringstream im;
     im << id;
-#ifdef __PSP2__
+#ifdef __vita__
     remove(("ux0:data/znsq/saves/znq" + im.str() + ".dat").c_str());
 #else
     remove(("saves/znq" + im.str() + ".dat").c_str());

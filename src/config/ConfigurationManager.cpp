@@ -4,7 +4,7 @@
 #include "../engine/texts/TextManager.h"
 #include "KeyBinder.h"
 
-#ifdef __PSP2__
+#ifdef __vita__
 #include <psp2/io/stat.h>
 #endif
 
@@ -22,7 +22,7 @@ ConfigurationManager* ConfigurationManager::getInstance() {
 }
 
 void ConfigurationManager::init(string filename, string keys) {
-#ifdef __PSP2__
+#ifdef __vita__
 	sceIoMkdir("ux0:data/znsq/config", 0777);
     file = "ux0:data/znsq/" + filename;
 #else
@@ -37,7 +37,7 @@ void ConfigurationManager::init(string filename, string keys) {
         f.read((char *)&lang,sizeof(int));
         f.read((char *)&skin,sizeof(int));
         f.close();
-#ifdef __PSP2__
+#ifdef __vita__
     } else {
         SceAppUtilInitParam init;
         SceAppUtilBootParam boot;

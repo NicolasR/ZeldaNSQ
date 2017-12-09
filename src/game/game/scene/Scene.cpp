@@ -120,7 +120,7 @@ void Scene::handleActions(Action* action) {
                 break;
             }
 
-#ifdef __PSP2__
+#ifdef __vita__
             if (link->getStatus()->getVirtualLife() > 0 && action->isAction(MENU_ITEMS)) {
 #else
             if (link->getStatus()->getVirtualLife() > 0 && action->isAction(ENTER)) {

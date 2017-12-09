@@ -16,7 +16,7 @@
 #include "AudioHelper.h"
 #include "TextHelper.h"
 
-#ifdef __PSP2__
+#ifdef __vita__
 #include <psp2/apputil.h>
 #include <psp2/system_param.h>
 #endif

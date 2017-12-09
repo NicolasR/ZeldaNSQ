@@ -69,7 +69,7 @@ void Event::update(Uint8* keys) {
     current[kReturn] = keys[SDLK_RETURN] || keys[SDLK_KP_ENTER];
 
     current[QUIT] = false;
-#ifndef __PSP2__
+#ifndef __vita__
     current[RESIZE] = current[kCtrl] && current[kReturn];
 #endif
     current[QUIT_FORCED] = current[kAlt] && keys[SDLK_F4];

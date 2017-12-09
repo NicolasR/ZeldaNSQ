@@ -30,7 +30,7 @@ void GlobalSave::init() {
 }
 
 void GlobalSave::load() {
-#ifdef __PSP2__
+#ifdef __vita__
     ifstream f("ux0:data/znsq/saves/records.dat", ios::in | ios::binary);
 #else
     ifstream f("saves/records.dat", ios::in | ios::binary);
@@ -53,7 +53,7 @@ void GlobalSave::load() {
 }
 
 void GlobalSave::save() {
-#ifdef __PSP2__
+#ifdef __vita__
     ofstream f("ux0:data/znsq/saves/records.dat", ios::out | ios::binary);
 #else
     ofstream f("saves/records.dat", ios::out | ios::binary);

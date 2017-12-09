@@ -1,7 +1,7 @@
 #include "WImage.h"
 
 WImage::WImage(string filename, bool alpha) {
-#ifdef __PSP2__
+#ifdef __vita__
     name = "app0:" + filename;
 #else
     name = filename;

@@ -21,7 +21,7 @@
 
 #include "game/content/helper/ItemHelper.h"
 
-#ifdef __PSP2__
+#ifdef __vita__
 #include <psp2/power.h>
 #include <psp2/kernel/processmgr.h>
 #include <psp2/io/fcntl.h>
@@ -30,7 +30,7 @@ int _newlib_heap_size_user = 192 * 1024 * 1024;
 #endif
 
 int main(int argc, char** argv) {
-#ifdef __PSP2__
+#ifdef __vita__
     sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
     scePowerSetArmClockFrequency(444);
 

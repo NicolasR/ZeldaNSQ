@@ -1,7 +1,7 @@
 #include "WSound.h"
 
 WSound::WSound(string filename) {
-#ifdef __PSP2__
+#ifdef __vita__
     name = "app0:" + filename;
 #else
     name = filename;

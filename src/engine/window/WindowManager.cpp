@@ -19,13 +19,13 @@ int WindowManager::createWindow(string title, string iconName) {
             printf("Could not load SDL : %s\n", SDL_GetError());
             return -1;
         }
-#ifdef __PSP2__
+#ifdef __vita__
         SDL_InitSubSystem(SDL_INIT_JOYSTICK);
         joystick = SDL_JoystickOpen(0);
 #endif
         atexit(SDL_Quit);
 
-#ifndef __PSP2__
+#ifndef __vita__
         SDL_WM_SetCaption(title.c_str(), NULL);
         SDL_Surface* icon = SDL_LoadBMP(iconName.c_str());
         SDL_SetColorKey(icon, SDL_SRCCOLORKEY, SDL_MapRGB(icon->format,0,0,0));
@@ -36,7 +36,7 @@ int WindowManager::createWindow(string title, string iconName) {
         SDL_ShowCursor(SDL_DISABLE);
 #endif
 
-#ifdef __PSP2__
+#ifdef __vita__
         int sh = 544;
         int sw = (float)320*((float)sh/(float)240);
         int x = (960 - sw)/2;
@@ -63,7 +63,7 @@ bool WindowManager::isOpened() {
     return open;
 }
 
-#ifdef __PSP2__
+#ifdef __vita__
 int WindowManager::button(int buttonId) {
     return SDL_JoystickGetButton(joystick, buttonId);
 }
@@ -88,7 +88,7 @@ Event* WindowManager::getEvent() {
 
     Uint8* keys = SDL_GetKeyState(NULL);
 
-#ifdef __PSP2__
+#ifdef __vita__
     int ctrl = button(BTN_LTRIGGER);
     int lup = stick(LSTICK, STICK_UP);
     int ldown = stick(LSTICK, STICK_DOWN);
@@ -146,7 +146,7 @@ void WindowManager::close() {
 
 void WindowManager::display() {
 
-#ifdef __PSP2__
+#ifdef __vita__
     SDL_BlitSurface(windowTmp, NULL, window, NULL);
 #else
     SDL_Surface* tmp = zoomSurface(windowTmp, 2, 2, 0);

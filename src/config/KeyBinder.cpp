@@ -37,7 +37,7 @@ KeyBinder::KeyBinder() {
     binding[MAP_8] = k8;
     binding[MAP_9] = k9;
 
-#ifdef __PSP2__
+#ifdef __vita__
     binding[MENU_ITEMS] = kG;
 #endif
 
@@ -93,7 +93,7 @@ Action* KeyBinder::bind(Event* event) {
     action.setAction(MAP_8, event->isPushed(binding[MAP_8]));
     action.setAction(MAP_9, event->isPushed(binding[MAP_9]));
 
-#ifdef __PSP2__
+#ifdef __vita__
     action.setAction(MENU_ITEMS, event->isPushed(binding[MENU_ITEMS]));
 #endif
 

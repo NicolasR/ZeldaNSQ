@@ -18,7 +18,7 @@ project(${VITA_APPNAME})
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 # Flags and includes
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__PSP2__ -D_REENTRANT -fno-exceptions")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_REENTRANT -fno-exceptions")
 
 link_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
@@ -64,7 +64,7 @@ FOREACH(ITEM ${ASSETS})
 ENDFOREACH()
 
 # Create Vita artifacts
-vita_create_self(eboot.bin ${VITA_APPNAME})
+vita_create_self(eboot.bin ${VITA_APPNAME} UNSAFE)
 vita_create_vpk(${VITA_APPNAME}.vpk ${VITA_TITLEID} eboot.bin
   VERSION ${VITA_VERSION}
   NAME ${VITA_APPNAME}

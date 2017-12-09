@@ -39,7 +39,7 @@ void TextConfiguration::setHSize(int i) {
 }
 
 void TextConfiguration::setTextfile(string s) {
-#ifdef __PSP2__
+#ifdef __vita__
     textfile = "app0:" + s;
 #else
     textfile = s;

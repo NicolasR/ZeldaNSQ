@@ -20,7 +20,7 @@
 
 #include "../resources/WImage.h"
 
-#ifdef __PSP2__
+#ifdef __vita__
 #define BTN_TRIANGLE 0
 #define BTN_CIRCLE 1
 #define BTN_CROSS 2
@@ -70,7 +70,7 @@ class WindowManager {
         Uint32 lastAnimTime;
         bool open;
 
-#ifdef __PSP2__
+#ifdef __vita__
         SDL_Joystick* joystick;
         int button(int buttonId);
         int stick(int stickId, int direction);

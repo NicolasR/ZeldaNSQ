@@ -24,7 +24,7 @@
 #include <iostream>
 #include <fstream>
 
-#ifdef __PSP2__
+#ifdef __vita__
 #include <psp2/kernel/clib.h>
 #define printf sceClibPrintf
 #endif

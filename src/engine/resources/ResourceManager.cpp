@@ -77,7 +77,7 @@ void ResourceManager::free(WResource* resource) {
         return;
     }
     if (resource->unload() == 0) {
-#ifdef __PSP2__
+#ifdef __vita__
         printf("free: %s\n", resource->getName().substr(5, resource->getName().size()).c_str());
         resources.erase(resource->getName().substr(5, resource->getName().size()));
 #else
