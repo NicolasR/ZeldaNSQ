@@ -23,7 +23,7 @@ ConfigurationManager* ConfigurationManager::getInstance() {
 
 void ConfigurationManager::init(string filename, string keys) {
 #ifdef __vita__
-	sceIoMkdir("ux0:data/znsq/config", 0777);
+    sceIoMkdir("ux0:data/znsq/config", 0777);
     file = "ux0:data/znsq/" + filename;
 #else
     file = filename;

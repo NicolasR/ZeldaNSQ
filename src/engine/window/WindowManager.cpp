@@ -1,5 +1,135 @@
 #include "WindowManager.h"
 
+#ifdef __vita__
+#include <vitaGL.h>
+#include <imgui_vita.h>
+bool bilinear = true;
+bool vflux_window = false;
+bool credits_window = false;
+bool vflux_enabled = false;
+float vcolors[3];
+uint16_t *vindices;
+float *colors;
+float *vertices;
+uint64_t tick;
+SDL_Shader shader = SDL_SHADER_NONE;
+
+void ImGui_callback() {
+    ImGui_ImplVitaGL_NewFrame();
+
+    if (ImGui::BeginMainMenuBar()) {
+        if (ImGui::BeginMenu("Graphics")) {
+            if (ImGui::MenuItem("Bilinear Filter", nullptr, bilinear)) {
+                bilinear = !bilinear;
+                SDL_SetVideoModeBilinear(bilinear);
+            }
+            if (ImGui::MenuItem("vFlux Config", nullptr, vflux_window)) {
+                vflux_window = !vflux_window;
+            }
+            if (ImGui::BeginMenu("Shaders")) {
+                if (ImGui::MenuItem("None", nullptr, shader == SDL_SHADER_NONE)) {
+                    shader = SDL_SHADER_NONE;
+                    SDL_SetVideoShader(SDL_SHADER_NONE);
+                }
+                if (ImGui::MenuItem("Sharp Bilinear", nullptr, shader == SDL_SHADER_SHARP_BILINEAR)) {
+                    shader = SDL_SHADER_SHARP_BILINEAR;
+                    SDL_SetVideoShader(SDL_SHADER_SHARP_BILINEAR);
+                }
+                if (ImGui::MenuItem("Sharp Bilinear (Scancode)", nullptr, shader == SDL_SHADER_SHARP_BILINEAR_SIMPLE)) {
+                    shader = SDL_SHADER_SHARP_BILINEAR_SIMPLE;
+                    SDL_SetVideoShader(SDL_SHADER_SHARP_BILINEAR_SIMPLE);
+                }
+                if (ImGui::MenuItem("LCD 3x", nullptr, shader == SDL_SHADER_LCD3X)) {
+                    shader = SDL_SHADER_LCD3X;
+                    SDL_SetVideoShader(SDL_SHADER_LCD3X);
+                }
+                if (ImGui::MenuItem("xBR x2", nullptr, shader == SDL_SHADER_XBR_2X_FAST)) {
+                    shader = SDL_SHADER_XBR_2X_FAST;
+                    SDL_SetVideoShader(SDL_SHADER_XBR_2X_FAST);
+                }
+                ImGui::EndMenu();
+            }
+            ImGui::EndMenu();
+        }
+
+        if (ImGui::BeginMenu("Info")) {
+            if (ImGui::MenuItem("Credits", nullptr, credits_window)) {
+                credits_window = !credits_window;
+            }
+            ImGui::EndMenu();
+        }
+
+        if (vflux_window) {
+            ImGui::Begin("vFlux Configuration", &vflux_window);
+            ImGui::ColorPicker3("Filter Color", vcolors);
+            ImGui::Checkbox("Enable vFlux", &vflux_enabled);
+            ImGui::End();
+        }
+
+        if (credits_window) {
+            ImGui::Begin("Credits", &credits_window);
+            ImGui::TextColored(ImVec4(255, 255, 0, 255), "Zelda: Navi's Quest v1.1");
+            ImGui::Text("Game Creator: Vincent Jouillat");
+            ImGui::Text("Port Author: usineur");
+            ImGui::Separator();
+            ImGui::TextColored(ImVec4(255, 255, 0, 255), "Special thanks to:");
+            ImGui::Text("Rinnegatamante: SDL 1.2 and imgui Vita ports");
+            ImGui::End();
+        }
+
+        ImGui::SameLine();
+        ImGui::SetCursorPosX(870);
+
+        ImGui::Text("FPS: %.1f", ImGui::GetIO().Framerate);
+        ImGui::EndMainMenuBar();
+    }
+
+    if (vflux_enabled) {
+        memcpy(&colors[0], vcolors, sizeof(float) * 3);
+        memcpy(&colors[4], vcolors, sizeof(float) * 3);
+        memcpy(&colors[8], vcolors, sizeof(float) * 3);
+        memcpy(&colors[12], vcolors, sizeof(float) * 3);
+
+        float a;
+        SceDateTime time;
+        sceRtcGetCurrentClockLocalTime(&time);
+        if (time.hour < 6)        // Night/Early Morning
+            a = 0.25f;
+        else if (time.hour < 10) // Morning/Early Day
+            a = 0.1f;
+        else if (time.hour < 15) // Mid day
+            a = 0.05f;
+        else if (time.hour < 19) // Late day
+            a = 0.15f;
+        else // Evening/Night
+            a = 0.2f;
+        colors[3] = colors[7] = colors[11] = colors[15] = a;
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+        glEnableClientState(GL_COLOR_ARRAY);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        vglIndexPointerMapped(vindices);
+        vglVertexPointerMapped(vertices);
+        vglColorPointerMapped(GL_FLOAT, colors);
+        vglDrawObjects(GL_TRIANGLE_FAN, 4, true);
+        glDisableClientState(GL_COLOR_ARRAY);
+        glDisableClientState(GL_VERTEX_ARRAY);
+    }
+
+    ImGui::Render();
+    ImGui_ImplVitaGL_RenderDrawData(ImGui::GetDrawData());
+
+    SceTouchData touch;
+    sceTouchPeek(SCE_TOUCH_PORT_FRONT, &touch, 1);
+    uint64_t delta_touch = sceKernelGetProcessTimeWide() - tick;
+    if (touch.reportNum > 0) {
+        ImGui::GetIO().MouseDrawCursor = true;
+        tick = sceKernelGetProcessTimeWide();
+    } else if (delta_touch > 3000000) {
+        ImGui::GetIO().MouseDrawCursor = false;
+    }
+}
+#endif
+
 WindowManager WindowManager::instance=WindowManager();
 
 WindowManager::WindowManager() : isFullScreen(FULLSCREEN), event(0), window(0), windowTmp(0), open(false) {
@@ -22,6 +152,9 @@ int WindowManager::createWindow(string title, string iconName) {
 #ifdef __vita__
         SDL_InitSubSystem(SDL_INIT_JOYSTICK);
         joystick = SDL_JoystickOpen(0);
+
+        sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
+        sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, SCE_TOUCH_SAMPLING_STATE_START);
 #endif
         atexit(SDL_Quit);
 
@@ -37,18 +170,45 @@ int WindowManager::createWindow(string title, string iconName) {
 #endif
 
 #ifdef __vita__
+        window = SDL_SetVideoMode(320, 240, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
         int sh = 544;
-        int sw = (float)320*((float)sh/(float)240);
-        int x = (960 - sw)/2;
-
-        window = SDL_SetVideoMode(640, 480, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+        int sw = (float)window->w * ((float)sh / (float)window->h);
+        int x = (960 - sw) / 2;
         SDL_SetVideoModeScaling(x, 0, sw, sh);
 
-        windowTmp = SDL_SetVideoMode(320, 240, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+        vindices = (uint16_t*)malloc(sizeof(uint16_t)*4);
+        colors = (float*)malloc(sizeof(float)*4*4);
+        vertices = (float*)malloc(sizeof(float)*3*4);
+        vertices[0] =   0.0f;
+        vertices[1] =   0.0f;
+        vertices[2] =   0.0f;
+        vertices[3] = 960.0f;
+        vertices[4] =   0.0f;
+        vertices[5] =   0.0f;
+        vertices[6] = 960.0f;
+        vertices[7] = 544.0f;
+        vertices[8] =   0.0f;
+        vertices[9] =   0.0f;
+        vertices[10]= 544.0f;
+        vertices[11]=   0.0f;
+        vindices[0] = 0;
+        vindices[1] = 1;
+        vindices[2] = 2;
+        vindices[3] = 3;
+
+        ImGui::CreateContext();
+        ImGui_ImplVitaGL_Init();
+        ImGui_ImplVitaGL_TouchUsage(true);
+        ImGui_ImplVitaGL_MouseStickUsage(false);
+        ImGui_ImplVitaGL_UseIndirectFrontTouch(true);
+        ImGui::StyleColorsDark();
+        ImGui::GetIO().MouseDrawCursor = false;
+
+        SDL_SetVideoCallback(ImGui_callback);
 #else
         window = SDL_SetVideoMode(640, 480, 32, isFullScreen ? SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN : SDL_HWSURFACE|SDL_DOUBLEBUF);
-        windowTmp = SDL_CreateRGBSurface(SDL_HWSURFACE, 640, 480, 32, 0, 0, 0, 0);
 #endif
+        windowTmp = SDL_CreateRGBSurface(SDL_HWSURFACE, 640, 480, 32, 0, 0, 0, 0);
 
         //if (isFullScreen) SDL_Delay(2000); // wait the window is displayed
 
