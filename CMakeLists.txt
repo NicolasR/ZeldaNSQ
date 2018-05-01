@@ -17,7 +17,7 @@ project(${VITA_APPNAME})
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 # Flags and includes
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_REENTRANT -fno-exceptions -fpermissive")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_REENTRANT -fno-exceptions")
 
 link_directories(
   ${CMAKE_CURRENT_BINARY_DIR}

@@ -204,7 +204,7 @@ int WindowManager::createWindow(string title, string iconName) {
         ImGui::StyleColorsDark();
         ImGui::GetIO().MouseDrawCursor = false;
 
-        SDL_SetVideoCallback(ImGui_callback);
+        SDL_SetVideoCallback(reinterpret_cast<void(*)(...)>(ImGui_callback));
 #else
         window = SDL_SetVideoMode(640, 480, 32, isFullScreen ? SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN : SDL_HWSURFACE|SDL_DOUBLEBUF);
 #endif
