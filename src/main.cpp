@@ -35,6 +35,7 @@ int main(int argc, char** argv) {
     scePowerSetArmClockFrequency(444);
 
     sceIoMkdir("ux0:data/znsq", 0777);
+    sceIoMkdir("ux0:data/znsq/config", 0777);
     sceIoMkdir("ux0:data/znsq/saves", 0777);
 #endif
     if (argc && argv); //pour éviter un warning.....
