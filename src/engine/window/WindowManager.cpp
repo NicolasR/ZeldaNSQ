@@ -239,12 +239,12 @@ int WindowManager::createWindow(string title, string iconName) {
 #ifdef __vita__
         window = SDL_SetVideoMode(320, 240, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
-	    vindices = (uint16_t*)malloc(sizeof(uint16_t) * 4);
-		colors = (float*)malloc(sizeof(float) * 4 * 4);
-	    vertices = (float*)malloc(sizeof(float) * 3 * 4);
+        vindices = (uint16_t*)malloc(sizeof(uint16_t) * 4);
+        colors = (float*)malloc(sizeof(float) * 4 * 4);
+        vertices = (float*)malloc(sizeof(float) * 3 * 4);
 
-		LoadSettings();
-	    SetSettings();
+        LoadSettings();
+        SetSettings();
 
         vertices[0] =   0.0f;
         vertices[1] =   0.0f;
