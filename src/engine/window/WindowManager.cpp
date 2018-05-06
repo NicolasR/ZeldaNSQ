@@ -270,6 +270,7 @@ int WindowManager::createWindow(string title, string iconName) {
         ImGui_ImplVitaGL_UseIndirectFrontTouch(true);
         ImGui::StyleColorsDark();
         ImGui::GetIO().MouseDrawCursor = false;
+        ImGui::GetIO().IniFilename = "ux0:data/znsq/config/imgui.ini";
 
         SDL_SetVideoCallback(reinterpret_cast<void(*)(...)>(ImGui_callback));
 #else
