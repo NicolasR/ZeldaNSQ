@@ -22,8 +22,8 @@ Note: saves can be found in `ux0:data/znsq/saves` directory.
 | Down D-Pad | Oni Link transformation |
 | L + Square | Navi's heal |
 | L + Triangle | Navi's attack boost |
-| L + Circle | Navi's defense boost |
-| L + Cross | Navi's ultimate burst |
+| L + Cross | Navi's defense boost |
+| L + Circle | Navi's ultimate burst |
 | Select | Display help |
 | Start | Save quit |
 
@@ -32,6 +32,17 @@ Note: saves can be found in `ux0:data/znsq/saves` directory.
 - Vincent Jouillat, for [Original game](http://www.zeldaroth.fr/us/dlnsq.php)
 
 ## Changelog:
+
+1.1.1:
+- Add "Fullscreen" option
+- Add "Auto-hide menu bar" option
+- Imgui settings can now be saved and reloaded.
+
+1.1:
+- SDL 1.2 (vitaGL) + imgui support (thx to @Rinnegatamante)
+
+1.0.1:
+- Options can be saved now
 
 1.0:
 - First public release

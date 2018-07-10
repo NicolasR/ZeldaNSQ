@@ -334,13 +334,13 @@ Event* WindowManager::getEvent() {
     keys[SDLK_RIGHT] = (!navi & lright) | rright;
     keys[SDLK_z] = button(BTN_SQUARE); // Hit
     keys[SDLK_x] = button(BTN_TRIANGLE); // Action
-    keys[SDLK_c] = !navi & button(BTN_CROSS); // Carry
+    keys[SDLK_c] = button(BTN_CROSS); // Carry
     keys[SDLK_SPACE] = button(BTN_CIRCLE); // Talk / Read
     keys[SDLK_LCTRL] = navi; // Hi Navi
     keys[SDLK_i] = button(BTN_LEFT); // Troc items
     keys[SDLK_p] = button(BTN_UP); // Map
     keys[SDLK_o] = button(BTN_DOWN); // Oni Link Transformation
-    keys[SDLK_v] = ctrl & button(BTN_CROSS);
+    keys[SDLK_v] = ctrl & button(BTN_CIRCLE);
     keys[SDLK_LSHIFT] = button(BTN_RTRIGGER); // Run
     keys[SDLK_g] = !navi & button(BTN_RIGHT); // Open item menu
     keys[SDLK_RETURN] = !navi & button(BTN_CROSS); // Confirm / Pass text
