@@ -33,6 +33,9 @@ Note: saves can be found in `ux0:data/znsq/saves` directory.
 
 ## Changelog:
 
+1.1.2:
+- Fix L + Circle not working.
+
 1.1.1:
 - Add "Fullscreen" option
 - Add "Auto-hide menu bar" option

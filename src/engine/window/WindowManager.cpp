@@ -150,7 +150,7 @@ void ImGui_callback() {
 
         if (credits_window) {
             ImGui::Begin("Credits", &credits_window);
-            ImGui::TextColored(ImVec4(255, 255, 0, 255), "Zelda: Navi's Quest v1.1.1");
+            ImGui::TextColored(ImVec4(255, 255, 0, 255), "Zelda: Navi's Quest v1.1.2");
             ImGui::Text("Game Creator: Vincent Jouillat");
             ImGui::Text("Port Author: usineur");
             ImGui::Separator();
