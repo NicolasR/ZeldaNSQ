@@ -25,8 +25,13 @@ class TextConfiguration {
         int getWSize();
         int getHSize();
         int getWSpace();
+
         string getTextfile();
         WImage* getImage();
+#ifdef __vita__
+        int getPSButtonsSpace();
+        WImage* getImagePSButtons();
+#endif
 
     protected :
         void setWSize(int i);
@@ -34,12 +39,22 @@ class TextConfiguration {
         void setWSpace(int i);
         void setTextfile(string s);
         void setImage(WImage* im);
+#ifdef __vita__
+        void setImagePSButtons(WImage* im);
+        void setPSButtonsSpace(int i);
+#endif
 
     private :
         int wSpace;
         int wSize;
         int hSize;
+#ifdef __vita__
+        int psButtonsSpace;
+
+        WImage* imagePSButton;
+#endif
         WImage* image;
+
         string textfile;
 };
 

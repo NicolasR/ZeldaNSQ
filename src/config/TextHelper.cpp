@@ -10,10 +10,18 @@ TextHelper::TextHelper() {
     setHSize(16);
     image = ResourceManager::getInstance()->loadImage("data/images/texts/font.png", true);
     setImage(image);
+#ifdef __vita__
+    setPSButtonsSpace(16);
+    imagePSButton = ResourceManager::getInstance()->loadImage("data/images/texts/buttons.png", true);
+    setImagePSButtons(imagePSButton);
+#endif
 }
 
 TextHelper::~TextHelper() {
     ResourceManager::getInstance()->free(image);
+#ifdef __vita__
+    ResourceManager::getInstance()->free(imagePSButton);
+#endif
 }
 
 void TextHelper::setLanguage(int i) {

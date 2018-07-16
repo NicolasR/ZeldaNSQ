@@ -1,6 +1,6 @@
 #include "TextConfiguration.h"
 
-TextConfiguration::TextConfiguration() : wSpace(0), wSize(0), hSize(0), image(0), textfile("") {
+TextConfiguration::TextConfiguration() : wSpace(0), wSize(0), hSize(0), psButtonsSpace(0), image(0), textfile("") {
 }
 
 TextConfiguration::~TextConfiguration() {
@@ -49,3 +49,22 @@ void TextConfiguration::setTextfile(string s) {
 void TextConfiguration::setImage(WImage* im) {
     image = im;
 }
+
+#ifdef __vita__
+int TextConfiguration::getPSButtonsSpace() {
+    return psButtonsSpace;
+}
+
+WImage* TextConfiguration::getImagePSButtons() {
+    return imagePSButton;
+}
+
+void TextConfiguration::setPSButtonsSpace(int i) {
+    psButtonsSpace = i;
+}
+
+void TextConfiguration::setImagePSButtons(WImage* im) {
+    imagePSButton = im;
+}
+
+#endif

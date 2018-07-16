@@ -42,6 +42,10 @@ class Text {
 
         void displayInternal(int x, int y, int l, Surface* surface);     // display on a line
 
+#ifdef __vita__
+        int getPSButtonIndex(string text, unsigned int *i);
+#endif
+
         int wBox;
         int hBox;
         int length;

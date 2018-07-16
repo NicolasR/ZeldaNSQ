@@ -39,6 +39,16 @@ WImage* TextManager::getImage() {
     return config->getImage();
 }
 
+#ifdef __vita__
+int TextManager::getPSButtonsSpace() {
+    return config->getPSButtonsSpace();
+}
+
+WImage* TextManager::getImagePSButtons() {
+    return config->getImagePSButtons();
+}
+#endif
+
 Text* TextManager::getText(int id) {
     string text = texts[id];
 
@@ -96,6 +106,92 @@ void TextManager::loadTextsFromFile(string filename) {
             texts.push_back(line);
         }
     }
+}
+
+int TextManager::affichePSBouton(int index, int i, int j, Surface* surface, int style) {
+    int x = 0;
+    int w = getPSButtonsSpace();
+    int h = 16;
+    int y = 0;
+    
+    // Playstation button
+    // 1 => Triangle
+    // 2 => Rond
+    // 3 => Croix
+    // 4 => Carr�
+    // 5 => Pad Droite
+    // 6 => Pad Haut
+    // 7 => Pad Gauche
+    // 8 => Pad Bas
+    // 9 => Stick analogique
+	switch(index){
+        case 1: 
+            x=2;
+            y=2;
+            h=16;
+            w=16;
+            break;
+        case 2: 
+            x=22;
+            y=2;
+            h=16;
+            w=16;
+            break;
+        case 3: 
+            x=42;
+            y=2;
+            h=16;
+            w=16;
+            break;
+        case 4: 
+            x=62;
+            y=2;
+            h=16;
+            w=16;
+            break;
+        case 5:
+            x=2;
+            y=24;
+            h=12;
+            w=16;
+            j+=2;
+            break;
+        case 6:
+            x=24;
+            y=22;
+            h=16;
+            w=12;
+            break;
+        case 7:
+            x=42;
+            y=24;
+            h=12;
+            w=16;
+            j+=2;
+            break;
+        case 8:
+            x=64;
+            y=22;
+            h=16;
+            w=12;
+            break;
+        case 9:
+            x=2;
+            y=42;
+            h=16;
+            w=16;
+            break;
+	}
+
+    //int y = style * h;    
+    
+    if (surface == 0) {
+        WindowManager::getInstance()->draw(getImagePSButtons(), x, y, w, h, i, j);
+    } else {
+        surface->put(getImagePSButtons(), i, j, x, y, w, h);
+    }
+
+    return w;
 }
 
 void TextManager::drawLetter(char c, int i, int j, int style) {

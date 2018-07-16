@@ -29,10 +29,15 @@ class TextManager {
         int getWSpace();
         int getWSize();
         int getHSize();
+        
 
         Text* getText(int id);
         WImage* getImage();
-
+#ifdef __vita__
+        int getPSButtonsSpace();
+        WImage* getImagePSButtons();
+#endif
+        int affichePSBouton(int index, int i, int j, Surface* surface, int style = 0);
         void drawLetter(char c, int i, int j, int style = 0);
         void drawLetterOnSurface(char c, int i, int j, Surface* surface, int style = 0);
 

@@ -55,17 +55,17 @@ However as he approached the island shores, Link was attacked and beaten by a te
 About time! If you're trying to get sunstroke, that's the way to go!
 That being said, sunburns can't be such a big risk for someone dressed the way you are...
 Not too resourceful, are you? OK, I'll stay with you until you reach a village.
-I guess you're alright, in the end. I'll help you a bit more, then. Use Right stick to move me around and increase your vision perimeter.
-You're not as hopeless as I thought. I'll help you a bit more. Use Right stick to move me around and increase your vision perimeter.
-Aren't you hopeless! Alright, it looks like I'm gonna have to help you a bit more... Use Right stick to move me around and increase your vision perimeter.
-You don't seem to need it right now, but I can heal you if you need. Hold down LTRIGGER while pressing SQUARE if you want me to do it.
-By the way, I can heal you if you need. Hold down LTRIGGER while pressing SQUARE if you want me to do it.
-Oh, and I can heal you, too. Surely you could use that. Hold down LTRIGGER while pressing SQUARE when you want me to do it.
+I guess you're alright, in the end. I'll help you a bit more, then. Use Right ¾9 to move me around and increase your vision perimeter.
+You're not as hopeless as I thought. I'll help you a bit more. Use Right ¾9 to move me around and increase your vision perimeter.
+Aren't you hopeless! Alright, it looks like I'm gonna have to help you a bit more... Use Right ¾9 to move me around and increase your vision perimeter.
+You don't seem to need it right now, but I can heal you if you need. Hold down LTRIGGER while pressing ¾4 if you want me to do it.
+By the way, I can heal you if you need. Hold down LTRIGGER while pressing ¾4 if you want me to do it.
+Oh, and I can heal you, too. Surely you could use that. Hold down LTRIGGER while pressing ¾4 when you want me to do it.
 Still, healing costs magic. You'll need to wait for me to regain magic before I can heal you again. Check the gauge at the top left to see how much I have left.
 Look, a village! Find the chief's house, I'm sure he can help you.
 Shell Village
 E: Lagoon
-All my chickens have run away... Could you help me get them back? When you're close enough, press CROSS to catch one.
+All my chickens have run away... Could you help me get them back? When you're close enough, press ¾3 to catch one.
 Well done, you've found them all! Here, take this Shell as a reward:
 If a new tourist arrives, I'll let them loose again...
 You have found a Shell! Go trade it at the Gift Shop!
@@ -95,15 +95,15 @@ A bag of rice for 10 rupees?                                          [c=2]YES[c
 A bag of rice for 10 rupees?                                          YES                                             [c=2]NO[c=0]
 Come back if you change your mind.
 You don't have enough...
-You got a bag of rice!!!                        Press LEFT D-PAD to view your barter items.
-You got a bag of olives!!!                      Press LEFT D-PAD to view your barter items.
-You got a jar of spices!!!                      Press LEFT D-PAD to view your barter items.
-You got a chicken!!!                            Press LEFT D-PAD to view your barter items.
-You got a feather!!!                            Press LEFT D-PAD to view your barter items.
-You got a pearl!!!                              Press LEFT D-PAD to view your barter items.
-You got a tapestry!!!                           Press LEFT D-PAD to view your barter items.
-You got a charm!!!                              Press LEFT D-PAD to view your barter items.
-You got a perfume!!!                            Press LEFT D-PAD to view your barter items.
+You got a bag of rice!!!                        Press ¾7 to view your barter items.
+You got a bag of olives!!!                      Press ¾7 to view your barter items.
+You got a jar of spices!!!                      Press ¾7 to view your barter items.
+You got a chicken!!!                            Press ¾7 to view your barter items.
+You got a feather!!!                            Press ¾7 to view your barter items.
+You got a pearl!!!                              Press ¾7 to view your barter items.
+You got a tapestry!!!                           Press ¾7 to view your barter items.
+You got a charm!!!                              Press ¾7 to view your barter items.
+You got a perfume!!!                            Press ¾7 to view your barter items.
 You can't carry more.
 A bag of olives for 15 rupees?                                        [c=2]YES[c=0]                                             NO
 A bag of olives for 15 rupees?                                        YES                                             [c=2]NO[c=0]
@@ -217,8 +217,8 @@ I am the Great Fairy of the Fountain. I can     extract the power hidden in forc
 Bring me 15 force gems and I will summon a magic sword.
 I can summon a magic sword for 15 force gems.   Shall I do it for you?                                                [c=2]YES[c=0]                                             NO
 I can summon a magic sword for 15 force gems.   Shall I do it for you?                                                YES                                             [c=2]NO[c=0]
-You got a small sword!!!                        Press SQUARE to slash bushes or enemies!
-Hold down SQUARE to prepare a charged attack!
+You got a small sword!!!                        Press ¾4 to slash bushes or enemies!
+Hold down ¾4 to prepare a charged attack!
 You got the Fairy Sword!!!                      You can now deflect magic projectiles and defeat ghosts!!!
 Your sword got more powerful!!!                 Your enemies won't last long!!!
 You got the legendary Ragnell Sword!!!          No monster can resist its power!!!
@@ -292,9 +292,9 @@ Fire Temple                                     Please knock before entering.
 S: Piece of Heart Village
 Ice Temple                                      Closed in summer.
 It looks like there are no hostile creatures in this cave. That's something, I guess.
-You should try and read the sign in front of you, you could get some important clues.        Press CIRCLE when you're standing before it.
+You should try and read the sign in front of you, you could get some important clues.        Press ¾2 when you're standing before it.
 Well done!                                      If you need the help section, press SELECT.  Let's see what happens if you open this chest.
-Press CROSS to lift light objects such as pots and signs.
+Press ¾3 to lift light objects such as pots and signs.
 There is a crack in this wall. Coming back later with an explosive item would probably help opening the way.
 I am the Great Fairy of the Jungle. I can improve your gear to assist you in your quest.
 I shall begin with your gloves, they look worn out.
@@ -306,7 +306,7 @@ You found the Power Gloves!!!                   You can now lift heavier objects
 You got the Megaton Gloves!!!                   You can now lift even the heaviest of boulders!!!
 You found a Bow!!!                              You can now fire powerful arrows!
 You got the Fairy Bow!!!                        Your arrows have become quite deadly and can even harm ghosts!!!
-You found a Boomerang!!!                        Press RIGHT D-PAD to open the menu and equip it. Throw it with TRIANGLE.
+You found a Boomerang!!!                        Press ¾5 to open the menu and equip it. Throw it with ¾1.
 You got the Fairy Boomerang!!!                  You can now throw it even farther, it will always come back!!!
 Welcome, you two. I shall increase Navi's       magic to assist you in your quest.
 I have done all I could to help you.            Good luck!
@@ -341,7 +341,7 @@ You found the Moon Pearl!!!                     You can now explore the Shadow T
 Sorry, we've run out.
 The island map for a shell?                                           [c=2]YES[c=0]                                             NO
 The island map for a shell?                                           YES                                             [c=2]NO[c=0]
-You got the island map!!!                       Press UP D-PAD when you are outside to check it!
+You got the island map!!!                       Press ¾6 when you are outside to check it!
 A heart container for 2 shells?                                       [c=2]YES[c=0]                                             NO
 A heart container for 2 shells?                                       YES                                             [c=2]NO[c=0]
 A force gem detector for 2 shells?                                    [c=2]YES[c=0]                                             NO
@@ -425,7 +425,7 @@ You say you want to help? It's quite sudden, but if you can gather all 7 medalli
 I don't make a habit of sending our precious tourists to death, but you look self assured, and I'm intrigued by the firefly following you...
 If you can gather decent equipment - that is at least a sword, a shield, and a map of the island - I'll grant you access the jungle temple, North from here.
 Let me offer you this bag full of barter items to thank you for your kind intentions:
-You got a barter items bag!!!                   Press LEFT D-PAD to view its contents!
+You got a barter items bag!!!                   Press ¾7 to view its contents!
 Your equipment looks ok...                      Speak to the guard at the northern gate, he'll let you pass. Good luck!
 Jungle Temple is North from here. Good luck!
 Please, find the 7 medallions quickly, you're our only hope!
@@ -559,7 +559,7 @@ A frosty rock for 350 rupees, ok?                                     YES       
 Thanks, here are your 100 rupees.
 Thanks, here are your 350 rupees.
 You don't have what I am seeking...
-You got a frosty rock!!!                        Press LEFT D-PAD to view your barter items.
+You got a frosty rock!!!                        Press ¾7 to view your barter items.
 FROSTY ROCK
 FROSTY ROCKS
 Thanks, here are your 100 rupees.
@@ -584,7 +584,7 @@ I inherited a stock of frosty rocks. I'm very attached to it, but I could give y
 Deal?                                                                 [c=2]YES[c=0]                                             NO
 Deal?                                                                 YES                                             [c=2]NO[c=0]
 Shadow temple, East from here, is a gate toward the world of the dead... I don't know what this precisely means, but I guess it's better to stay away from it.
-You have found the dungeon's map!!! When inside the dungeon, press UP D-PAD to view it!!!
+You have found the dungeon's map!!! When inside the dungeon, press ¾6 to view it!!!
 You have found the compass!!! Chests and bosses are now marked on the map!!!
 You have found the boss key!!!                  Use it to enter it's lair!!!!
 You have found a small key!!!                   Use it to open a locked door!!!!
@@ -721,45 +721,45 @@ Select it in the options' menu!
 - Expert mode!
 Start a new game to try it!
 - Oni Link!
-Press DOWN D-PAD to transform!
+Press ¾8 to transform!
 HELP 1 / 3:
-Move Link:                         Left stick
-Read / Open / Talk:                    Circle
-Confirm / Pass text:                    Cross
+Move Link:                           Left ¾9
+Read / Open / Talk:                       ¾2
+Confirm / Pass text:                      ¾3
 Run:                            Right trigger
 ???:                            ????? ???????
-Use the sword:                         Square
+Use the sword:                            ¾4
 ??? ??? ?????:                         ??????
-Spin attack:        Square held then released
+Spin attack:           ¾4 held then released
 ???? ??????:        ?????? ???? ???? ????????
-Lift / Drop / Throw:                    Cross
-Back to game: Cross              Next : Right
+Lift / Drop / Throw:                      ¾3
+Back to game: ¾3                 Next : Right
 HELP 2 / 3:
-Selection item menu:              Right D-Pad
-Use selected object:                 Triangle
+Selection item menu:                      ¾5
+Use selected object:                      ¾1
 ??? ???????? ??????:                 ????????
-Display map:                         Up D-Pad
+Display map:                              ¾6
 ??????? ???:                         ?? ?????
-Display barter items:             Right D-Pad
+Display barter items:                     ¾7
 ??????? ?????? ?????:             ????? ?????
-Oni Link Transformation:           Down D-Pad
+Oni Link Transformation:                  ¾8
 ??? ???? ??????????????:           ???? ?????
-Move Navi:                        Right stick
+Move Navi:                          Right ¾9
 ???? ????:                        ????? ?????
-Navi's heal:            Left trigger + Square
+Navi's heal:               Left trigger + ¾4
 ?????? ????:            ???? ??????? ? ??????
 Previous: Left                    Next: Right
 HELP 3 / 3:
-Navi's attack boost:  Left trigger + Triangle
+Navi's attack boost:       Left trigger + ¾1
 ?????? ?????? ?????:  ???? ??????? ? ????????
-Navi's defense boost:    Left trigger + Cross
+Navi's defense boost:      Left trigger + ¾3
 ?????? ??????? ?????:    ???? ??????? ? ?????
-Navi's ultimate burst:  Left trigger + Circle
+Navi's ultimate burst:     Left trigger + ¾2
 ?????? ???????? ?????:  ???? ??????? ? ??????
 Full screen / Windowed:         Not available
 Save / Quit:                            Start
 Force to quit:                  Not available
-Previous: Left            Back to game: Cross
+Previous: Left               Back to game: ¾3
 Do you want to go back to the dungeon's         entrance?                                                             [c=2]YES[c=0]                                             NO
 Do you want to go back to the dungeon's         entrance?                                                             YES                                             [c=2]NO[c=0]
 US translation:

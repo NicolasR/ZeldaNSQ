@@ -47,7 +47,15 @@ void Text::displayInternal(int x, int y, int l, Surface* surface) {
             if (text[i] == '[') {
                 begin = i;
                 in = true;
-            } else {
+            } 
+#ifdef __vita__
+            else if (text[i] == '¾') {
+                int buttonIndex = getPSButtonIndex(text, &i);                
+                x += TextManager::getInstance()->affichePSBouton(buttonIndex, x, y, surface, style);
+                count++;
+            } 
+#endif
+            else {
                 if (surface == 0) {
                     TextManager::getInstance()->drawLetter(text[i], x, y, style);
                 } else {
@@ -67,6 +75,12 @@ void Text::displayBox(int x, int y, int l) {
     }
 
     int wSpace = TextManager::getInstance()->getWSpace();
+    int psButtonsSpace = TextManager::getInstance()->getPSButtonsSpace();
+    int decalPSButtons = 0;
+    if (psButtonsSpace > wSpace) {
+        decalPSButtons = psButtonsSpace / wSpace;
+    }
+    
     //int wSize = TextManager::getInstance()->getWSize();
     int hSize = TextManager::getInstance()->getHSize();
 
@@ -103,7 +117,33 @@ void Text::displayBox(int x, int y, int l) {
                         countLine++;
                     }
                     newWord = true;
-                } else {
+                } 
+#ifdef __vita__
+                else if (inBox[i] == '¾') {
+                        int buttonIndex = getPSButtonIndex(inBox, &i);
+                        
+                        if (countRow + decalPSButtons > nbRows) {
+                            countRow = 0;
+                            countLine++;
+                        }
+
+                        int buttonSpace = TextManager::getInstance()->affichePSBouton(
+                            buttonIndex, 
+                            x + countRow * wSpace - 2,
+                            y + countLine * hSize,
+                            0, 
+                            style);
+                        if (buttonSpace > wSpace) {
+                            decalPSButtons = buttonSpace / wSpace;
+                        }
+
+                        count++;
+                        countRow = countRow + decalPSButtons;
+                        continue;
+                } 
+#endif                                
+                else {
+
                     if (newWord) {
                         int tmp = wordSize(inBox, i);
                         if (tmp == 0) {
@@ -292,3 +332,24 @@ int Text::wordSize(string txt, unsigned int i) {
     }
     return size;
 }
+
+#ifdef __vita__
+int Text::getPSButtonIndex(string text, unsigned int *i){
+    int buttonIndex = 0;
+    char nextCharacter;
+    int nextCharacterValue;
+    while((*i)+1 < text.length()) {
+        (*i)++;
+        nextCharacter = text[*i];
+        nextCharacterValue = (int)nextCharacter;
+        if (nextCharacterValue <48 || nextCharacterValue>57){
+            (*i)--;
+            break;
+        }
+
+        buttonIndex+= nextCharacterValue - 48;
+    }
+
+    return buttonIndex;
+}
+#endif

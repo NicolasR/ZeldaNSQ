@@ -55,17 +55,17 @@ Mais à peine l'île en vue, Link fut vaincu par un terrifiant monstre marin.
 Enfin ! Tu cherches à attraper une insolation à rester au soleil comme ça ?
 Remarque, vu ta tenue, tu ne risques pas grand-chose côté coups de soleil...
 T'as pas l'air bien débrouillard, je vais t'accompagner un peu le temps de trouver un village.
-T'as l'air plutôt bon en fait, je vais t'aider un peu plus. Utilise le stick droit pour me déplacer et voir un peu plus loin autour de toi.
-T'as pas l'air si mauvais finalement, je vais t'aider un peu plus. Utilise le stick droit pour me déplacer et voir un peu plus loin autour de toi.
-T'es une vraie calamité ! Je vais devoir t'aider un peu plus. Utilise le stick droit pour me déplacer et voir un peu plus loin autour de toi.
-Tu ne sembles pas en avoir besoin, mais je peux également te soigner quand tu veux. Maintien la gâchette gauche et appuie sur CARRE quand tu voudras que je te soigne.
-Au fait, je peux également te soigner quand tu veux. Maintiens la gâchette gauche et appuie sur CARRE quand tu voudras que je te soigne.
-Je peux également te soigner quand tu veux, ça devrait t'être très utile. Maintiens la gâchette gauche et appuie sur CARRE quand tu voudras que je te soigne.
+T'as l'air plutôt bon en fait, je vais t'aider un peu plus. Utilise le ¾9 droit pour me déplacer et voir un peu plus loin autour de toi.
+T'as pas l'air si mauvais finalement, je vais t'aider un peu plus. Utilise le ¾9 droit pour me déplacer et voir un peu plus loin autour de toi.
+T'es une vraie calamité ! Je vais devoir t'aider un peu plus. Utilise le ¾9 droit pour me déplacer et voir un peu plus loin autour de toi.
+Tu ne sembles pas en avoir besoin, mais je peux également te soigner quand tu veux. Maintiens la gâchette gauche et appuie sur ¾4 quand tu voudras que je te soigne.
+Au fait, je peux également te soigner quand tu veux. Maintiens la gâchette gauche et appuie sur ¾4 quand tu voudras que je te soigne.
+Je peux également te soigner quand tu veux, ça devrait t'être très utile. Maintiens la gâchette gauche et appuie sur ¾4 quand tu voudras que je te soigne.
 Néanmoins, mes soins utilisent de la magie. Il faudra attendre que je récupère avant de me demander un nouveau soin. Surveille la jauge en haut à gauche pour voir la magie qu'il me reste.
 Un village ! Trouve la maison du chef, il devrait pouvoir t'aider.
 Village des Coquillages
 E : Lagon
-Toutes mes poules se sont échappées... Veux-tu m'aider à les ramener ? Tu peux attraper une poule en appuyant sur CROIX à proximité.
+Toutes mes poules se sont échappées... Veux-tu m'aider à les ramener ? Tu peux attraper une poule en appuyant sur ¾3 à proximité.
 Félicitations, tu les as toutes trouvées ! Prends ce coquillage en récompense :
 Je relâcherai mes cocottes si un nouveau touriste arrive.
 Tu as trouvé un Coquillage !!! Echange-le à la boutique de souvenirs !
@@ -95,15 +95,15 @@ Un sac de riz pour 10 rubis ?                                         [c=2]OUI[c
 Un sac de riz pour 10 rubis ?                                         OUI                                             [c=2]NON[c=0]
 Reviens si tu changes d'avis.
 Tu n'as pas assez...
-Tu as obtenu un sac de riz !!!                  Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu un sac d'olives !!!                Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu un bocal d'épices !!!              Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu un poulet !!!                      Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu une plume !!!                      Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu une perle !!!                      Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu une tapisserie !!!                 Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu une amulette !!!                   Appuie sur D-pad gauche pour consulter tes items de troc.
-Tu as obtenu un parfum !!!                      Appuie sur D-pad gauche pour consulter tes items de troc.
+Tu as obtenu un sac de riz !!!                  Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu un sac d'olives !!!                Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu un bocal d'épices !!!              Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu un poulet !!!                      Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu une plume !!!                      Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu une perle !!!                      Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu une tapisserie !!!                 Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu une amulette !!!                   Appuie sur ¾7 pour consulter tes items de troc.
+Tu as obtenu un parfum !!!                      Appuie sur ¾7 pour consulter tes items de troc.
 Tu ne peux pas en transporter plus.
 Un sac d'olives pour 15 rubis ?                                       [c=2]OUI[c=0]                                             NON
 Un sac d'olives pour 15 rubis ?                                       OUI                                             [c=2]NON[c=0]
@@ -217,8 +217,8 @@ Je suis la grande fée de la fontaine. J'ai le   pouvoir d'extraire la puissance 
 Apporte-moi 15 gemmes de force et je pourrai    invoquer une épée magique.
 Je peux t'invoquer une épée magique pour 15     gemmes de force. Es-tu intéressé ?                                    [c=2]OUI[c=0]                                             NON
 Je peux t'invoquer une épée magique pour 15     gemmes de force. Es-tu intéressé ?                                    OUI                                             [c=2]NON[c=0]
-Tu as trouvé une petite épée !!!                Sers-t'en pour couper des ennemis ou des buissons en appuyant sur CARRE !
-Maintenir CARRE permet de préparer une attaque  chargée !
+Tu as trouvé une petite épée !!!                Sers-t'en pour couper des ennemis ou des buissons en appuyant sur ¾4 !
+Maintenir ¾4 permet de préparer une attaque     chargée !
 Tu as obtenu l'Epée des Fées !!!                Tu peux désormais renvoyer les projectiles magiques et vaincre des fantômes !!!
 Ton épée gagne en puissance !!!                 Tes ennemis vont fondre sous tes coups !!!
 Tu as obtenu la légendaire épée Ragnell !!!     Aucun monstre ne devrait y résister !!!
@@ -292,9 +292,9 @@ Temple du Feu                                   Frappez avant d'entrer.
 S : Village des Quarts de Coeur
 Temple de Glace                                 Fermé l'été
 Il n'y a pas l'air d'y avoir de créatures       hostiles dans cette grotte, c'est déjà ça...
-Tu devrais essayer de lire la pancarte devant   toi, elle pourrait donner d'importants indices. Appuie sur ROND une fois face à elle.
-Bien joué !                                     Tu peux appuyer sur SELECT pour afficher l'aide.    Essaie d'ouvrir ce coffre, pour voir.
-Appuie sur Croix pour soulever des objets       légers, tels que cette pancarte ou des jarres.
+Tu devrais essayer de lire la pancarte devant   toi, elle pourrait donner d'importants indices. Appuie sur ¾2 une fois face à elle.
+Bien joué !                                     Tu peux appuyer sur SELECT pour afficher l'aide. Essaie d'ouvrir ce coffre, pour voir.
+Appuie sur ¾3 pour soulever des objets          légers, tels que cette pancarte ou des jarres.
 Ce mur est fissuré. Revenir plus tard dans le   jeu avec un objet explosif pourrait permettre d'ouvrir un passage.
 Je suis la grande fée de la jungle.             J'ai le pouvoir d'améliorer ton équipement pour vous aider dans votre quête.
 Je vais déjà améliorer tes gants, ils ont l'air un peu usés.
@@ -306,7 +306,7 @@ Tu as trouvé les Gants de Puissance !!!         Tu vas désormais pouvoir souleve
 Tu as obtenu les Gants des Titans !!!           Tu peux désormais soulever les pierres les plus lourdes !!!
 Tu as trouvé un Arc !!!                         Tu peux désormais tirer de puissantes flèches !
 Tu as obtenu l'Arc des Fées !!!                 Tes flèches sont désormais terriblement puissantes et blessent même les spectres !!!
-Tu as trouvé un Boomerang !!!                   Appuie sur D-pad droit pour accéder au menu afin de l'équiper, puis lance-le en appuyant sur TRIANGLE !
+Tu as trouvé un Boomerang !!!                   Appuie sur ¾5 pour accéder au menu afin de l'équiper, puis lance-le en appuyant sur ¾1 !
 Tu as obtenu le Boomerang des Fées !!!          Tu peux le lancer plus loin sans risquer de le perdre !!!
 Soyez les bienvenus. Je vais vous aider en      augmentant la magie de Navi.
 J'ai fait tout ce qui était en mon pouvoir.     Bonne chance !
@@ -341,7 +341,7 @@ Tu as trouvé la Perle de Lune !!!               Tu devrais désormais pouvoir exp
 Cet article est en rupture de stock, désolé.
 La carte de l'île pour un coquillage ?                                [c=2]OUI[c=0]                                             NON
 La carte de l'île pour un coquillage ?                                OUI                                             [c=2]NON[c=0]
-Tu as obtenu la carte de l'île !!!              Appuie sur D-pad haut à l'extérieur pour la consulter !
+Tu as obtenu la carte de l'île !!!              Appuie sur ¾6 à l'extérieur pour la consulter !
 Un Réceptacle de Coeur pour 2 coquillages ?                           [c=2]OUI[c=0]                                             NON
 Un Réceptacle de Coeur pour 2 coquillages ?                           OUI                                             [c=2]NON[c=0]
 Un détecteur de Gemmes de Force pour 2          coquillages ?                                                         [c=2]OUI[c=0]                                             NON
@@ -425,7 +425,7 @@ Tu dis vouloir nous aider ? C'est assez soudain, mais si tu arrivais à rassemble
 Je n'ai pas pour habitude d'envoyer nos précieux touristes à la mort, mais tu sembles sûr de toi, et la luciole à tes côtés m'intrigue...
 Si tu parviens à réunir un équipement décent avec une épée, un bouclier et une carte de l'île, je t'autoriserai à accéder au temple de la jungle au nord d'ici.
 Laisse-moi t'offrir ce sac de troc avec quelques items pour te remercier :
-Tu as obtenu un sac de troc !!!                 Appuie sur D-pad gauche pour voir son contenu !
+Tu as obtenu un sac de troc !!!                 Appuie sur ¾7 pour voir son contenu !
 Ton équipement a l'air correct...               Parle au garde au nord du village, il te        laissera passer.                                Bonne chance !
 Le Temple de la Jungle est au nord d'ici.       Bonne chance !
 Trouve vite les 7 médaillons, tu es notre seul  espoir !
@@ -559,7 +559,7 @@ Je te rachète un roc givre 350 rubis, ok ?                            OUI       
 Merci, voilà tes 100 rubis.
 Merci, voilà tes 350 rubis.
 Tu n'as pas ce que je cherche...
-Tu as obtenu un roc givre !!!                   Appuie sur D-pad gauche pour consulter tes items de troc.
+Tu as obtenu un roc givre !!!                   Appuie sur ¾7 pour consulter tes items de troc.
 ROC GIVRE
 ROCS GIVRES
 Merci, voilà tes 100 rubis.
@@ -584,7 +584,7 @@ J'ai hérité d'un stock de roc givre, j'y tiens  beaucoup, mais je peux t'en donn
 Marché conclu ?                                                       [c=2]OUI[c=0]                                             NON
 Marché conclu ?                                                       OUI                                             [c=2]NON[c=0]
 Le temple de l'ombre, à l'est d'ici, est une    passerelle vers le monde des morts... J'ignore ce que ça signifie, mais je suppose qu'il vaut mieux éviter de s'y aventurer.
-Tu as trouvé la carte du donjon !!!             Tu peux la consulter en appuyant sur D-pad haut à l'intérieur du donjon !!!
+Tu as trouvé la carte du donjon !!!             Tu peux la consulter en appuyant sur ¾6 à l'intérieur du donjon !!!
 Tu as trouvé la boussole !!!                    L'emplacement des coffres et des boss est désormais indiqué sur la carte !!!
 Tu as trouvé la clé du boss !!!                 Tu peux désormais accéder à son repère !!!
 Tu as trouvé une petite clé !!!                 Tu peux désormais ouvrir une porte verrouillée !!!
@@ -721,45 +721,45 @@ Sélectionne-le dans les options !
 - le mode Expert !
 Crée une nouvelle partie pour l'essayer !
 - Oni Link !
-Appuie sur D-pad bas pour te transformer !
+Appuie sur ¾8 pour te transformer !
 AIDE 1 / 3 :
-Déplacer Link :                  Stick gauche
-Lire / Ouvrir / Parler :                 Rond
-Valider / Passer texte :                Croix
+Déplacer Link :                    ¾9 gauche
+Lire / Ouvrir / Parler :                  ¾2
+Valider / Passer texte :                  ¾3
 Courir :                      Gâchette droite
 ?????? :                      ???????? ??????
-Coup d'épée :                           Carré
+Coup d'épée :                             ¾4
 ???? ?????? :                           ?????
-Attaque Tornade :   Carré maintenu puis lâché
+Attaque Tornade :     ¾4 maintenu puis lâché
 ??????? ??????? :   ????? ???????? ???? ?????
-Soulever / Poser / Jeter :              Croix
-Retour au jeu : Croix          Suite : Droite
+Soulever / Poser / Jeter :                ¾3
+Retour au jeu : ¾3             Suite : Droite
 AIDE 2 / 3 :
-Menu de sélection d'objet :       D-pad droit
-Utiliser l'objet sélectionné :       Triangle
+Menu de sélection d'objet :               ¾5
+Utiliser l'objet sélectionné :            ¾1
 ???????? ??????? ??????????? :       ????????
-Afficher la carte :                D-pad haut
+Afficher la carte :                       ¾6
 ???????? ?? ????? :                ????? ????
-Afficher les items de troc :     D-pad gauche
+Afficher les items de troc :              ¾7
 ???????? ??? ????? ?? ???? :     ????? ??????
-Transformation Oni Link :           D-pad bas
+Transformation Oni Link :                 ¾8
 ?????????????? ??? ???? :           ????? ???
-Déplacer Navi :                   Stick droit
+Déplacer Navi :                     ¾9 droit
 ???????? ???? :                   ????? ?????
-Soin de Navi :       Gâchette gauche et carré
+Soin de Navi :         Gâchette gauche et ¾4
 ???? ?? ???? :       ???????? ?????? ?? ?????
 Précédent : Gauche             Suite : Droite
 AIDE 3 / 3 :
-Attaque de Navi : Gâchette gauche et triangle
+Attaque de Navi :      Gâchette gauche et ¾1
 ??????? ?? ???? : ???????? ?????? ?? ????????
-Défense de Navi :    Gâchette gauche et croix
+Défense de Navi :      Gâchette gauche et ¾3
 ??????? ?? ???? :    ???????? ?????? ?? ?????
-Ultime de Navi :    Gâchette gauche et cercle
+Ultime de Navi :       Gâchette gauche et ¾2
 ?????? ?? ???? :    ???????? ?????? ?? ??????
 Plein écran / Fenêtre :        Non disponible
 Sauvegarder / Quitter :                 Start
 Forcer le jeu à quitter :      Non disponible
-Précédent : Gauche      Retour au jeu : Croix
+Précédent : Gauche         Retour au jeu : ¾3
 Souhaites-tu retourner à l'entrée du donjon ?                         [c=2]OUI[c=0]                                             NON
 Souhaites-tu retourner à l'entrée du donjon ?                         OUI                                             [c=2]NON[c=0]
 Traductions US :

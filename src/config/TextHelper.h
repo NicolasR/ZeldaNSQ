@@ -27,6 +27,9 @@ class TextHelper : public TextConfiguration {
 
     private :
         WImage* image;
+#ifdef __vita__
+        WImage* imagePSButton;
+#endif
 };
 
 #endif  // TextHelper.h
