@@ -1,6 +1,14 @@
 #include "TextConfiguration.h"
 
-TextConfiguration::TextConfiguration() : wSpace(0), wSize(0), hSize(0), psButtonsSpace(0), image(0), textfile("") {
+TextConfiguration::TextConfiguration() : 
+    wSpace(0), 
+    wSize(0), 
+    hSize(0), 
+#ifdef __vita__
+    psButtonsSpace(0),
+#endif 
+    image(0), 
+    textfile("") {
 }
 
 TextConfiguration::~TextConfiguration() {

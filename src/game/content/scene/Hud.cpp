@@ -133,56 +133,124 @@ void Hud::drawBonus() {
 
 void Hud::drawSpells() {
     if (animNavi > 0) {
+
         bool allSpells = inventory->hasObject(NAVI_ULT);
-
-        WindowManager::getInstance()->draw(image, 100, 45, 80, 4, 10, 240 + 10 - animNavi);
-        if (allSpells) WindowManager::getInstance()->draw(image, 105, 45, 90, 4, 30, 240 + 10 - animNavi);
-        WindowManager::getInstance()->draw(image, 192, 45, 8, 4, allSpells ? 90 + 30 : 90, 240 + 10 - animNavi);
-
-        WindowManager::getInstance()->draw(image, 212, 8, 4, 28, 10, 240 + 10 - animNavi + 4);
-        WindowManager::getInstance()->draw(image, 218, 8, 4, 28, allSpells ? 94 + 30 : 94, 240 + 10 - animNavi + 4);
-
-
-        WindowManager::getInstance()->draw(image, 100, 51, 80, 4, 10, 240 + 10 - animNavi + 32);
-        if (allSpells) WindowManager::getInstance()->draw(image, 105, 51, 90, 4, 30, 240 + 10 - animNavi + 32);
-        WindowManager::getInstance()->draw(image, 192, 51, 8, 4, allSpells ? 90 + 30 : 90, 240 + 10 - animNavi + 32);
-
-        for (int i = 0; i < (allSpells ? 8 + 3 : 8); i++) {
-            WindowManager::getInstance()->draw(image, 3, 8, 10, 28, 14 + 10 * i, 240 + 10 - animNavi + 4);
+        int spellContainerWidth = 35;
+        int baseSpellsCount = 0;
+        Equipment availableSpells[] = {NAVI_HEAL, NAVI_ATT, NAVI_DEF, NAVI_ULT};
+        for(int spellIndex = 0;spellIndex < sizeof(availableSpells);spellIndex++){
+            if (inventory->hasObject(availableSpells[spellIndex])) {
+                baseSpellsCount++;
+            }
+        }
+        
+        int mainBoxWidth = spellContainerWidth * baseSpellsCount;
+        int lineWidth = 5;
+        int linesToWrite = mainBoxWidth / lineWidth;
+        int boxLineCursorX = 18;
+        while(linesToWrite > 0){
+            WindowManager::getInstance()->draw(image, 105, 45, lineWidth, 4, boxLineCursorX, 240 + 10 - animNavi);
+            WindowManager::getInstance()->draw(image, 105, 51, lineWidth, 4, boxLineCursorX, 240 + 10 - animNavi + 32);
+            boxLineCursorX += lineWidth;
+            linesToWrite--;
         }
 
+        // Arrondis haut
+        WindowManager::getInstance()->draw(image, 100, 45, 8, 4, 10, 240 + 10 - animNavi);
+        WindowManager::getInstance()->draw(image, 192, 45, 8, 4, boxLineCursorX, 240 + 10 - animNavi);
+               
+        // Arrondis bas
+        WindowManager::getInstance()->draw(image, 100, 51, 8, 4, 10, 240 + 10 - animNavi + 32);
+        WindowManager::getInstance()->draw(image, 192, 51, 8, 4, boxLineCursorX, 240 + 10 - animNavi + 32);
+        boxLineCursorX += 4;
+         
+        // Bordures gauche et droite
+        WindowManager::getInstance()->draw(image, 212, 8, 4, 28, 10, 240 + 10 - animNavi + 4);
+        WindowManager::getInstance()->draw(image, 218, 8, 4, 28, boxLineCursorX, 240 + 10 - animNavi + 4);
+        
+        // Arrière plan
+        int backgroundWidth = 5;
+        linesToWrite = mainBoxWidth / backgroundWidth;
+        float remainingBakgroundLine = mainBoxWidth - linesToWrite * backgroundWidth * 1.;
+        WindowManager::getInstance()->draw(image, 3, 8, 8, 28, 14, 240 + 10 - animNavi + 4);
+        WindowManager::getInstance()->draw(image, 3, 8, 8, 28, 14 + backgroundWidth * linesToWrite, 240 + 10 - animNavi + 4);
+        for (int i = 0; i < linesToWrite; i++) {
+            WindowManager::getInstance()->draw(image, 3, 8, backgroundWidth, 28, 18 + backgroundWidth * i, 240 + 10 - animNavi + 4);
+        }
 
+        int padding = 8;
+        int paddingButton = 4;
+#ifdef __vita__
+        paddingButton = 0;
+#endif
+        int currentSpellCount = 1;
+        int spellButtonX = 14;
+        int spellImageX = 22;
+        int spellLevelX = 33;
+        int spellMagicX = 22;
+        
         if (inventory->hasObject(NAVI_HEAL)) {
-            TextManager::getInstance()->drawLetter('W', 14, 240 + 10 - animNavi + 4);
-            WindowManager::getInstance()->draw(image, 0, 55, 16, 16, 22, 240 + 10 - animNavi + 8);
+#ifndef __vita__
+            TextManager::getInstance()->drawLetter('W', spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4);
+#else
+            TextManager::getInstance()->affichePSBouton(4, spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4, 0);
+#endif
+            WindowManager::getInstance()->draw(image, 0, 55, 16, 16, spellImageX + currentSpellCount * padding, 240 + 10 - animNavi + 8);
             if (navi->getLvlHeal() > 1) {
-                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlHeal() - 2) * 5, 55, 5, 5, 33, 240 + 20 - animNavi + 8);
+                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlHeal() - 2) * 5, 55, 5, 5, spellLevelX + currentSpellCount * padding, 240 + 20 - animNavi + 8);
             }
-            drawJaugeMultiStyle(22, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 20);
+            drawJaugeMultiStyle(spellMagicX + currentSpellCount * padding, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 20);
+            currentSpellCount++;
+            spellButtonX+=28;
+            spellImageX+=28;
+            spellLevelX+=28;
+            spellMagicX+=28;
         }
 
         if (inventory->hasObject(NAVI_ATT)) {
-            TextManager::getInstance()->drawLetter('X', 42, 240 + 10 - animNavi + 4);
-            WindowManager::getInstance()->draw(image, 16, 55, 16, 16, 50, 240 + 10 - animNavi + 8);
+#ifndef __vita__
+            TextManager::getInstance()->drawLetter('X', spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4);
+#else
+            TextManager::getInstance()->affichePSBouton(1, spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4, 0);
+#endif
+            WindowManager::getInstance()->draw(image, 16, 55, 16, 16, spellImageX + currentSpellCount * padding, 240 + 10 - animNavi + 8);
             if (navi->getLvlAtt() > 1) {
-                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlAtt() - 2) * 5, 55, 5, 5, 61, 240 + 20 - animNavi + 8);
+                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlAtt() - 2) * 5, 55, 5, 5, spellLevelX + currentSpellCount * padding, 240 + 20 - animNavi + 8);
             }
-            drawJaugeMultiStyle(50, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 10);
+            drawJaugeMultiStyle(spellMagicX + currentSpellCount * padding, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 10);
+            currentSpellCount++;
+            spellButtonX+=28;
+            spellImageX+=28;
+            spellLevelX+=28;
+            spellMagicX+=28;
         }
 
         if (inventory->hasObject(NAVI_DEF)) {
-            TextManager::getInstance()->drawLetter('C', 70, 240 + 10 - animNavi + 4);
-            WindowManager::getInstance()->draw(image, 32, 55, 16, 16, 78, 240 + 10 - animNavi + 8);
+#ifndef __vita__
+            TextManager::getInstance()->drawLetter('C', spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4);
+#else
+            TextManager::getInstance()->affichePSBouton(3, spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4, 0);
+#endif
+            WindowManager::getInstance()->draw(image, 32, 55, 16, 16, spellImageX + currentSpellCount * padding, 240 + 10 - animNavi + 8);
             if (navi->getLvlDef() > 1) {
-                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlDef() - 2) * 5, 55, 5, 5, 89, 240 + 20 - animNavi + 8);
+                WindowManager::getInstance()->draw(image, 48 + (navi->getLvlDef() - 2) * 5, 55, 5, 5, spellLevelX + currentSpellCount * padding, 240 + 20 - animNavi + 8);
             }
-            drawJaugeMultiStyle(78, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 15);
+            drawJaugeMultiStyle(spellMagicX + currentSpellCount * padding, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 15);
+            currentSpellCount++;
+            spellButtonX+=28;
+            spellImageX+=28;
+            spellLevelX+=28;
+            spellMagicX+=28;
         }
 
         if (allSpells) {
-            TextManager::getInstance()->drawLetter('V', 98, 240 + 10 - animNavi + 4);
-            WindowManager::getInstance()->draw(image, 116, 55, 16, 16, 106, 240 + 10 - animNavi + 8);
-            drawJaugeMultiStyle(106, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 40);
+#ifndef __vita__
+            TextManager::getInstance()->drawLetter('V', spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4);
+#else
+            TextManager::getInstance()->affichePSBouton(2, spellButtonX + paddingButton + (currentSpellCount - 1) * padding, 240 + 10 - animNavi + 4, 0);
+#endif
+            WindowManager::getInstance()->draw(image, 116, 55, 16, 16, spellImageX + currentSpellCount * padding, 240 + 10 - animNavi + 8);
+            drawJaugeMultiStyle(spellMagicX + currentSpellCount * padding, 240 + 10 - animNavi + 8 + 16, navi->getMagic(), 40);
         }
     }
 }

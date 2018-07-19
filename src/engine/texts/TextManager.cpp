@@ -108,6 +108,7 @@ void TextManager::loadTextsFromFile(string filename) {
     }
 }
 
+#ifdef __vita__
 int TextManager::affichePSBouton(int index, int i, int j, Surface* surface, int style) {
     int x = 0;
     int w = getPSButtonsSpace();
@@ -193,6 +194,7 @@ int TextManager::affichePSBouton(int index, int i, int j, Surface* surface, int 
 
     return w;
 }
+#endif
 
 void TextManager::drawLetter(char c, int i, int j, int style) {
     drawLetterInternal(c, i, j, style, 0);

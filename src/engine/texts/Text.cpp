@@ -75,11 +75,14 @@ void Text::displayBox(int x, int y, int l) {
     }
 
     int wSpace = TextManager::getInstance()->getWSpace();
+    
+#ifdef __vita__
     int psButtonsSpace = TextManager::getInstance()->getPSButtonsSpace();
     int decalPSButtons = 0;
     if (psButtonsSpace > wSpace) {
         decalPSButtons = psButtonsSpace / wSpace;
     }
+#endif
     
     //int wSize = TextManager::getInstance()->getWSize();
     int hSize = TextManager::getInstance()->getHSize();
