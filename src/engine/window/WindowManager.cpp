@@ -304,10 +304,10 @@ int WindowManager::stick(int stickId, int direction) {
     if (stickId == RSTICK && (direction == STICK_UP || direction == STICK_DOWN)) axis = 3; // Right stick, vertical axis
 
     axisValue = SDL_JoystickGetAxis(joystick, axis); // range is -32768 to 32767
-    return ((axisValue < -31000 && direction == STICK_LEFT)
-      || (axisValue > 31000 && direction == STICK_RIGHT)
-      || (axisValue < -31000 && direction == STICK_UP)
-      || (axisValue > 31000 && direction == STICK_DOWN));
+    return ((axisValue < -16384 && direction == STICK_LEFT)
+      || (axisValue > 16384 && direction == STICK_RIGHT)
+      || (axisValue < -16384 && direction == STICK_UP)
+      || (axisValue > 16384 && direction == STICK_DOWN));
 }
 #endif
 
