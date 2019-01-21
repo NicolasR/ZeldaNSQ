@@ -272,7 +272,7 @@ int WindowManager::createWindow(string title, string iconName) {
         ImGui::GetIO().MouseDrawCursor = false;
         ImGui::GetIO().IniFilename = "ux0:data/znsq/config/imgui.ini";
 
-        SDL_SetVideoCallback(reinterpret_cast<void(*)(...)>(ImGui_callback));
+        SDL_SetVideoCallback(ImGui_callback);
 #else
         window = SDL_SetVideoMode(640, 480, 32, isFullScreen ? SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN : SDL_HWSURFACE|SDL_DOUBLEBUF);
 #endif
