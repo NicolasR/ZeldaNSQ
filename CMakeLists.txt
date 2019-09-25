@@ -47,6 +47,7 @@ target_link_libraries(${VITA_APPNAME}
   png
   vitaGL
   imgui
+  mathneon
   z
   SceAppMgr_stub
   SceAppUtil_stub
